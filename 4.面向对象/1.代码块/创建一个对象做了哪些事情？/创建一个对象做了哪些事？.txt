@@ -1,0 +1,26 @@
+public class Demo {
+	public static void main(String[] args) {
+		Student s = new Student();
+
+	}
+
+}
+
+class Student {
+	private String name = "杨铭";
+	private int age = 19;
+
+	public Student() {
+		name = "夏虎";
+		age = 20;
+	}
+}
+  Student s = new Student();做了哪些事？
+  
+A:把Student.class文件加载到内存
+B:在栈内存给s变量开辟一个空间
+C:在堆内存为Student对象申请一个空间
+D:给成员变量进行默认初始化---->name=null,age=0
+E:给成员变量进行显示初始化---->name=杨铭,age=19
+F:通过构造方法给成员变量进行初始化----->name=夏虎,age=20
+G:数据初始化完毕,然后把堆内存的地址值赋值给栈内存的s变量

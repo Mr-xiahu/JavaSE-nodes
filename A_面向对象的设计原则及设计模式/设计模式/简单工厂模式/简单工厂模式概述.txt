@@ -1,0 +1,41 @@
+简单工厂模式：
+    又叫静态工厂方法模式，它定义一个具体的工厂类负责创建一些类的实例
+
+优点
+    客户端不需要在负责对象的创建，从而明确了各个类的职责
+
+缺点
+    这个静态工厂类负责所有对象的创建，如果有新的对象增加，或者某些对象的创建方式不同，
+	就需要不断的修改工厂类，不利于后期的维护
+	
+	概述：
+	   A:有一个Animal抽象类,类中有一个抽象方法eat()
+	   
+	   B:有一个Dog类extends Animal类,有一个Cat类 extends Animal类	   
+	     两个类重写了Animal(父)类的eat()方法
+		 
+	   C:以前的模式是利用多态,分别调用两个方法
+	       Animal d=new Dog();
+		   d.eat();
+		   Animal c=new Cat();
+		   c.eat();
+		   
+	   D:但是如果我想调用Pig的eat()方法，怎么办?难道我又重新去写一个Pig类去继承Animal,
+	     然后继续重写eat()方法?显然,这种方式太费时费力！所有,现在有了简单工厂模式来帮你完成这件事
+		 
+	   E:现在创建一个工厂类AnimalFactory,创建方法
+	     public static Animal createAnimal(String type){
+		      if("dog".equals(type)){
+			      return new Dog();
+			  }if("cat".equals(type)){
+			      return new Cat();
+			  }
+		 }
+	          
+	   F:当你需要用到Pig的eat()方法时,创建一个Pig类继承Animal,重写方法,然后在测试类中:
+	       Animal p=AnimalFactory.createAnimal("pig");
+		   p.eat();
+		   
+		   
+		   
+		   代码体现如下：

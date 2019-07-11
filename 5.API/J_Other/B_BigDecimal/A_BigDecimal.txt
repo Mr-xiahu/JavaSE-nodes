@@ -1,0 +1,10 @@
+BigDecimal类：不可变的、任意精度的有符号十进制数,可以解决数据丢失问题。
+
+构造方法：
+ * public BigDecimal(String val)
+ * 
+ * public BigDecimal add(BigDecimal augend)  加
+ * public BigDecimal subtract(BigDecimal subtrahend)  减
+ * public BigDecimal multiply(BigDecimal multiplicand)  乘
+ * public BigDecimal divide(BigDecimal divisor)   除
+ * public BigDecimal divide(BigDecimal divisor,int scale,int roundingMode):商，几位小数，如何舍取

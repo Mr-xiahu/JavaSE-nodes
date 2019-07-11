@@ -1,0 +1,14 @@
+Scanner:用于接收键盘录入数据	
+	基本格式：
+  		public boolean hasNextXxx():判断是否是某种类型的元素
+ 		public Xxx nextXxx():获取该元素
+			举例：用int类型的方法举例
+ 			public boolean hasNextInt()
+ 			public int nextInt()
+			
+	出现问题了：
+  		先获取一个数值，在获取一个字符串，会出现问题。
+  		主要原因：就是那个换行符号的问题。
+    如何解决呢?
+  		A:先获取一个数值后，在创建一个新的键盘录入对象获取字符串。
+  		B:把所有的数据都先按照字符串获取，然后要什么，你就对应的转换为什么。

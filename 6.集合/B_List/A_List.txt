@@ -1,0 +1,46 @@
+List集合的特点：
+ * 		有序(存储和取出的元素一致)，可重复的。
+ 
+ 
+	List集合的特有功能：
+ * 		A:添加功能
+ * 			void add(int index,Object element):在指定位置添加元素
+ * 		B:获取功能
+ * 			Object get(int index):获取指定位置的元素
+ * 		C:列表迭代器
+ * 			ListIterator listIterator()：List集合特有的迭代器
+ * 		D:删除功能
+ * 			Object remove(int index)：根据索引删除元素,返回被删除的元素
+ * 		E:修改功能
+ * 			Object set(int index,Object element):根据索引修改元素，返回被修饰的元素
+ 
+ 
+	List集合的特有遍历功能：
+ * 		size()和get()方法结合使用
+ 
+		// 普通for循环
+		for (int x = 0; x < list.size(); x++) {
+			Student s = (Student) list.get(x);
+			System.out.println(s.getName() + "---" + s.getAge());
+		}
+		
+	该迭代器继承了Iterator迭代器，所以，就可以直接使用hasNext()和next()方法。
+ * 
+ * 	特有功能：
+ * 		Object previous():获取上一个元素
+ * 		boolean hasPrevious():判断是否有元素
+ * 
+ * 		注意：ListIterator可以实现逆向遍历，但是必须先正向遍历，才能逆向遍历，所以一般无意义，不使用。
+ 
+ 
+	问题?
+ * 		我有一个集合，如下，请问，我想判断里面有没有"world"这个元素，如果有，我就添加一个"javaee"元素，请写代码实现。
+			答案见:ListIteratorDemo2.java
+			
+			
+			
+			
+			
+			
+			
+			

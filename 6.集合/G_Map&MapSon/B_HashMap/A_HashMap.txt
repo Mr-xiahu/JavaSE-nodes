@@ -1,0 +1,6 @@
+HashMap:是基于哈希表的Map接口实现。
+ * 哈希表的作用是用来保证键的唯一性的。
+ * 
+ * HashMap<String,String>
+ * 键：String
+ * 值：String

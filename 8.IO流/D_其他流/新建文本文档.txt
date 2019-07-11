@@ -1,0 +1,110 @@
+A:可以读写基本数据类型的数据
+  	数据输入流：DataInputStream
+   		DataInputStream(InputStream in)
+   	数据输出流：DataOutputStream
+   		DataOutputStream(OutputStream out) 
+ 
+B:内存操作流：用于处理临时存储信息的，程序结束，数据就从内存中消失。
+   	字节数组：
+   		ByteArrayInputStream
+   		ByteArrayOutputStream
+   	字符数组：
+   		CharArrayReader
+   		CharArrayWriter
+   	字符串：
+   		StringReader
+   		StringWriter
+ 
+C:打印流
+   字节流打印流	PrintStream
+   字符打印流	PrintWriter
+   
+   打印流的特点：
+   		A:只有写数据的，没有读取数据。只能操作目的地，不能操作数据源。
+   		B:可以操作任意类型的数据。
+   		C:如果启动了自动刷新，能够自动刷新。
+   		D:该流是可以直接操作文本文件的。
+   			哪些流对象是可以直接操作文本文件的呢?
+   			FileInputStream
+   			FileOutputStream
+   			FileReader
+   			FileWriter
+   			PrintStream
+   			PrintWriter
+   			看API,查流对象的构造方法，如果同时有File类型和String类型的参数，一般来说就是可以直接操作文件的。
+   
+   			流：
+   				基本流：就是能够直接读写文件的
+   				高级流：在基本流基础上提供了一些其他的功能
+ 
+D:System.in 标准输入流。是从键盘获取数据的
+	System类中的两个成员变量：
+  		public static final InputStream in “标准”输入流。
+   		public static final PrintStream out “标准”输出流。
+   
+   		InputStream is = System.in;
+   		PrintStream ps = System.out;
+   
+   	键盘录入数据：
+   		A:main方法的args接收参数。
+   			java HelloWorld hello world java
+   		B:Scanner(JDK5以后的)
+   			Scanner sc = new Scanner(System.in);
+   			String s = sc.nextLine();
+   			int x = sc.nextInt()
+   		C:通过字符缓冲流包装标准输入流实现
+   			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+E:随机访问流：
+   		RandomAccessFile类不属于流，是Object类的子类。
+   		但它融合了InputStream和OutputStream的功能。
+   		支持对文件的随机访问读取和写入。
+   
+   		public RandomAccessFile(String name,String mode)：第一个参数是文件路径，第二个参数是操作文件的模式。
+   			模式有四种，我们最常用的一种叫"rw",这种方式表示我既可以写数据，也可以读取数据
+ 
+F:合并流：
+		SequenceInputStream类可以将多个输入流串流在一起，合并为一个输入流，因此，该流也被称为合并流。
+		
+			SequenceInputStream的构造方法
+				SequenceInputStream(InputStream s1, InputStream s2)  
+				SequenceInputStream(Enumeration<? extends InputStream> e)
+				把多个文件的内容写入到一个文本文件
+
+G:	序列化流：把对象按照流一样的方式存入文本文件或者在网络中传输。对象 -- 流数据(ObjectOutputStream)
+   	反序列化流:把文本文件中的流对象数据或者网络中的流对象数据还原成对象。流数据 -- 对象(ObjectInputStream)
+ 
+H:Properties:属性集合类。是一个可以和IO流相结合使用的集合类。
+   	Properties 可保存在流中或从流中加载。属性列表中每个键及其对应值都是一个字符串。 
+   
+   	是Hashtable的子类，说明是一个Map集合。
+ 
+	特殊功能：
+   		public Object setProperty(String key,String value)：添加元素
+   		public String getProperty(String key):获取元素
+   		public Set<String> stringPropertyNames():获取所有的键的集合
+ 
+		public void load(Reader reader):把文件中的数据读取到集合中
+  	 	public void store(Writer writer,String comments):把集合中的数据存储到文件
+ 
+I:nio包在JDK4出现，提供了IO流的操作效率。但是目前还不是大范围的使用。
+   有空的话了解下，有问题再问我。
+   
+   JDK7的之后的nio：
+   Path:路径
+   Paths:有一个静态方法返回一个路径
+   		public static Path get(URI uri)
+   Files:提供了静态方法供我们使用
+   		public static long copy(Path source,OutputStream out):复制文件
+   		public static Path write(Path path,Iterable<? extends CharSequence> lines,Charset cs,OpenOption... options)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+E:

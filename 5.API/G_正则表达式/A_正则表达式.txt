@@ -1,0 +1,36 @@
+正则表达式：符合一定规则的字符串。
+
+	判断功能
+  		String类的public boolean matches(String regex)
+ 
+	分割功能
+  		String类的public String[] split(String regex)
+  			据给定正则表达式的匹配拆分此字符串。
+
+	替换功能
+    	String类的public String replaceAll(String regex,String replacement)
+    	使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。 
+ 
+	获取功能
+  		Pattern和Matcher类的使用
+  		
+  		模式和匹配器的基本使用顺序
+  /
+public class RegexDemo {
+	public static void main(String[] args) {
+		// 模式和匹配器的典型调用顺序
+		// 把正则表达式编译成模式对象
+		Pattern p = Pattern.compile("a b");
+		// 通过模式对象得到匹配器对象，这个时候需要的是被匹配的字符串
+		Matcher m = p.matcher("aaaaab");
+		// 调用匹配器对象的功能
+		boolean b = m.matches();
+		System.out.println(b);
+		
+		//这个是判断功能，但是如果做判断，这样做就有点麻烦了，我们直接用字符串的方法做
+		String s = "aaaaab";
+		String regex = "a b";
+		boolean bb = s.matches(regex);
+		System.out.println(bb);
+	}
+}

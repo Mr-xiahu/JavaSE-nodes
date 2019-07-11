@@ -1,0 +1,41 @@
+工厂方法模式:
+    工厂方法模式中抽象工厂类负责定义创建对象的接口，具体对象的创建工作由继承抽象工厂的具体类实现。
+优点:
+    客户端不需要在负责对象的创建，从而明确了各个类的职责，
+	如果有新的对象增加，只需要增加一个具体的类和具体的工厂类即可，
+	不影响已有的代码，后期维护容易，增强了系统的扩展性
+缺点:
+    需要额外的编写代码，增加了工作量
+	
+	概述:
+	  A:需求: 假使我想去动物工厂买一只狗,但是别人一只不卖,我一气之下就要买100条狗,
+	  别人就专门给我造了座工厂来生产狗，同理猫也一样。
+	  
+	  B:创建抽象的父类Animal,其中有抽象方法eat(),子类Dog和子类Cat重写父类的eat()方法
+	  
+	  C:创建一个接口Factory,其中有抽象方法createAnimal();
+	    public interface Factory {
+	         public abstract Animal creatrAnimal();
+
+        }
+		
+	  D:创建DogFactory实现Factory接口,创建CatFactory实现Factory接口,并重写接口的抽象方法creatrAnimal()。
+	    public class DogFactory implements Factory{
+		   @Override
+		   public Animal creatrAnimal(){
+		       return new Dog();
+		   }
+		}
+		
+		public class CatFactory implements Factory{
+		   @Override
+		   public Animal creatrAnimal(){
+		       return new Cat();
+		   }
+		}
+		
+	  E:在测试类中调用接口实现createAnimal()方法
+	    Factory f=new DogFactory();
+		Animal a=f.creatrAnimal();
+		
+	  F:代码实现如下：

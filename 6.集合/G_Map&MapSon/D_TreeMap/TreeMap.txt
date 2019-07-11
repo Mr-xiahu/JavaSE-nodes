@@ -1,0 +1,5 @@
+TreeMap:是基于红黑树的Map接口的实现。
+ * 
+ * HashMap<String,String>
+ * 键：String
+ * 值：String

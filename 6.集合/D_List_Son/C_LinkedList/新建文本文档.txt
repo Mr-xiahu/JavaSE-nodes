@@ -1,0 +1,10 @@
+LinkedList的特有功能：
+ * 		A:添加功能
+ * 			public void addFirst(Object e)
+ * 			public void addLast(Object e)
+ * 		B:获取功能
+ * 			public Object getFirst()
+ * 			public Obejct getLast()
+ * 		C:删除功能
+ * 			public Object removeFirst()
+ * 			public Object removeLast()
